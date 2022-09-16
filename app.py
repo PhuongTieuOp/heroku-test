@@ -36,12 +36,20 @@ conn = engine.connect()
 # 4. Create route(s) that render template(s)
 #=======================================================================
 @app.route("/")
-def home():
-    return render_template("index-search.html")
+def welcome():    
+    return render_template("index.html")
+
+@app.rout("/api/searchRegion")
+def search():
+    return render_template("search-region.html")
 
 @app.route("/api/compareRegion")
 def compare():
-    return render_template("index-compare1.html")
+    return render_template("compare-reqion.html")
+
+@app.rout("/api/searchLGA")
+def search():
+    return render_template("search-lga.html")
 
 #========================================================================
 # 5. Define routes to retrieve data from database. These routes can be used/called in any app.js
