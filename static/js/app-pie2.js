@@ -7,6 +7,7 @@
 // ===============================================================================
 // 1. Initialisation 
 // ===============================================================================
+const dataRegionPath = '/api/getTotalByRegion';
 const dataUniqueRegionPath = '/api/getRegionNames';
 
 const delayChart = 50;
@@ -90,108 +91,106 @@ function plotPiechart(){
 var data1 = [{
     values: list2022,
     labels: listRegionName,
-    text: '2022',
-    textposition: 'inside',
-    domain: {column: 0},
-    name: '2022',    
-    textinfo: "label+percent",
-    insidetextorientation: "radial",
+    text: '2022', name: '2022',    
+    textinfo: "label+percent",    
+    textposition: "outside",
     hoverinfo: 'label+percent+name',
     hole: .4,
-    type: 'pie' },
-    {
+    type: 'pie' }];
+
+var data2 = [{
     values: list2021,
     labels: listRegionName,
-    text: '2021',
-    textposition: 'inside',
-    domain: {column: 1},
-    name: '2021',
+    text: '2021', name: '2021',
     textinfo: "label+percent",
-    insidetextorientation: "radial",
+    textposition: "outside",
     hoverinfo: 'label+percent+name',
     hole: .4,
-    type: 'pie'}]
-    
-var data2 = [{
+    type: 'pie'}];
+
+var data3 = [{
     values: list2020,
     labels: listRegionName,
-    text: '2020',
-    textposition: 'inside',
-    domain: {row: 0, column: 1},
-    name: '2020',
-    textinfo: "label+percent",
-    insidetextorientation: "radial",
+    text: '2020', name: '2020',
+    textinfo: "label+percent",    
+    textposition: "outside",
     hoverinfo: 'label+percent+name',
     hole: .4,
-    type: 'pie'},
-    {    
+    type: 'pie'}];
+ 
+var data4 = [{  
     values: list2019,
     labels: listRegionName,
-    text: '2019',
-    textposition: 'inside',
-    domain: { x: [0.52,1], y: [0, 0.48]},
-    name: '2019',
-    textinfo: "label+percent",
-    insidetextorientation: "radial",
+    text: '2019', name: '2019',
+    textinfo: "label+percent",    
+    textposition: "outside",
     hoverinfo: 'label+percent+name',
     hole: .4,
-    type: 'pie'}]
+    type: 'pie'}];
   
 var layout1 = {
-    title: 'Regional Incidents 2019-2022',
     annotations: [
       {
-        font: {
-          size: 20
-        },
+        font: {size: 20 },
         showarrow: false,
-        text: '2022',
-        x: 0.17,
-        y: 0.5
-      },
-      {
-        font: {
-          size: 20
-        },
-        showarrow: false,
-        text: '2021',
-        x: 0.82,
-        y: 0.5
-      }],
-
-    height: 400,
-    width: 600,
-    showlegend: false,
-    grid: {rows: 1, columns: 2}
-};
+        text: '2022'
+      }],      
+      paper_bgcolor:'rgba(0,0,0,0)', // make background transparent
+      plot_bgcolor:'rgba(0,0,0,0)',
+      height: 400,
+      width: 400,
+      margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+      showlegend: false
+}
 
 var layout2 = {
     annotations: [
       {
-        font: {
-          size: 20
-        },
+        font: {size: 20 },
         showarrow: false,
-        text: '2020',
-        x: 0.17,
-        y: 0.5
-      },      
+        text: '2021'
+      }],      
+      paper_bgcolor:'rgba(0,0,0,0)', // make background transparent
+      plot_bgcolor:'rgba(0,0,0,0)',
+      height: 400,
+      width: 400,
+      margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+      showlegend: false
+}
+var layout3 = {
+    annotations: [
       {
-        font: {
-          size: 20
-        },
+        font: {size: 20 },
         showarrow: false,
-        text: '2019',
-        x: 0.17,
-        y: 0.5
-      }],
-    height: 400,
-    width: 600,
-    showlegend: false,
-    grid: {rows: 2, columns: 2}
-  };
+        text: '2020'
+      }],      
+      paper_bgcolor:'rgba(0,0,0,0)', // make background transparent
+      plot_bgcolor:'rgba(0,0,0,0)',
+      height: 400,
+      width: 400,
+      margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+      showlegend: false
+}
+var layout4 = {
+    annotations: [
+      {
+        font: {size: 20 },
+        showarrow: false,
+        text: '2019'
+      }],      
+      paper_bgcolor:'rgba(0,0,0,0)', // make background transparent
+      plot_bgcolor:'rgba(0,0,0,0)',
+      height: 400,
+      width: 400,
+      margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+      showlegend: false
+}
   
   Plotly.newPlot('pie-chart1', data1, layout1);
   
   Plotly.newPlot('pie-chart2', data2, layout2);
+  
+  Plotly.newPlot('pie-chart3', data3, layout3);
+  
+  Plotly.newPlot('pie-chart4', data4, layout4);
 }
